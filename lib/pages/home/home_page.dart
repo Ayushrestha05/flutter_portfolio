@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
 import 'package:portfolio_web/pages/home/components/education_experience_container.dart';
+import 'package:portfolio_web/pages/home/components/footer_container.dart';
 import 'package:portfolio_web/utils/constants.dart';
 
 import 'components/intro_container.dart';
@@ -22,7 +23,11 @@ class HomePage extends StatelessWidget {
                     text:
                         'FLUTTER - DART - LARAVEL - JAVA - HTML - CSS - MYSQL - PYTHON  /  '),
                 buildExperienceContainer(),
-                buildMarquee(text: 'BrainOutOfBounds  ')
+                buildMarquee(text: 'BrainOutOfBounds  '),
+                SizedBox(
+                  height: 50,
+                ),
+                const BuildFooterContainer()
               ],
             ),
           ),
