@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_web/pages/home_page.dart';
+import 'package:portfolio_web/pages/home/home_page.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
