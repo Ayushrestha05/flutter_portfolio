@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
                 buildMarquee(
                     text:
                         'FLUTTER - DART - LARAVEL - JAVA - HTML - CSS - MYSQL - PYTHON  /  '),
-                buildExperienceContainer(),
+                BuildExperienceContainer(),
                 buildMarquee(text: 'BrainOutOfBounds  '),
                 SizedBox(
                   height: 50,

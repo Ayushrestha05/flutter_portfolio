@@ -157,11 +157,11 @@ class buildIntroContainer extends StatelessWidget {
 }
 
 class LinkIconButton extends StatelessWidget {
-  String link;
-  String openType;
-  IconData icon;
+  final String link;
+  final String openType;
+  final IconData icon;
 
-  LinkIconButton({
+  const LinkIconButton({
     super.key,
     required this.link,
     required this.openType,
