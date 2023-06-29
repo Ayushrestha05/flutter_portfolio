@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/pages/home/components/flip_card.dart';
 import 'package:portfolio_web/utils/constants.dart';
@@ -114,57 +115,62 @@ class ExperienceTileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
-      children: eventList
-          .map((e) => ExpansionTile(
-                title: Text(
-                  e.event,
-                  style: const TextStyle(fontFamily: 'Bourgeois'),
-                ),
-                subtitle: Text(
-                  e.time,
-                  style: const TextStyle(fontFamily: 'Bourgeois'),
-                ),
-                collapsedTextColor: Colors.white,
-                textColor: textHighlightColorOrange,
-                collapsedBackgroundColor: const Color(0xFF2B303D),
-                childrenPadding: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                children:
-                    e.description != null && (e.description ?? []).isNotEmpty
-                        ? e.description!
-                            .map((value) => Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    const Text(
-                                      '\u2022',
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          height: 1.55,
-                                          color: Colors.white),
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Flexible(
-                                      child: Text(
-                                        value,
-                                        textAlign: TextAlign.left,
-                                        softWrap: true,
-                                        style: const TextStyle(
-                                          fontFamily: 'Bourgeois',
-                                          fontSize: 16,
-                                          height: 1.55,
-                                          color: Colors.white,
+      children: [
+        ExpansionTileGroup(
+            toggleType: ToggleType.expandOnlyCurrent,
+            children: eventList
+                .map((e) => ExpansionTileItem(
+                      title: Text(
+                        e.event,
+                        style: const TextStyle(fontFamily: 'Bourgeois'),
+                      ),
+                      subtitle: Text(
+                        e.time,
+                        style: const TextStyle(fontFamily: 'Bourgeois'),
+                      ),
+                      collapsedTextColor: Colors.white,
+                      textColor: textHighlightColorOrange,
+                      collapsedBackgroundColor: const Color(0xFF2B303D),
+                      childrenPadding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                      expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                      children: e.description != null &&
+                              (e.description ?? []).isNotEmpty
+                          ? e.description!
+                              .map((value) => Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const Text(
+                                        '\u2022',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            height: 1.55,
+                                            color: Colors.white),
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      Flexible(
+                                        child: Text(
+                                          value,
+                                          textAlign: TextAlign.left,
+                                          softWrap: true,
+                                          style: const TextStyle(
+                                            fontFamily: 'Bourgeois',
+                                            fontSize: 16,
+                                            height: 1.55,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ))
-                            .toList()
-                        : [],
-              ))
-          .toList(),
+                                    ],
+                                  ))
+                              .toList()
+                          : [],
+                    ))
+                .toList())
+      ],
     );
   }
 }
