@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio_web/pages/home/components/flip_card.dart';
 import 'package:portfolio_web/utils/constants.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -116,6 +117,29 @@ class ExperienceTileView extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        Container(
+          height: 200,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+            image: AssetImage('assets/images/monkey-adult-swim.gif'),
+            fit: BoxFit.cover,
+          )),
+          child: Align(
+            alignment: Alignment.bottomLeft,
+            child: Container(
+              width: double.maxFinite,
+              color: Colors.black.withOpacity(0.7),
+              padding: EdgeInsets.only(bottom: 5, left: 15, top: 5),
+              child: Text(
+                'Working\nExperiences',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'CindieMono',
+                    fontSize: 30.w),
+              ),
+            ),
+          ),
+        ),
         ExpansionTileGroup(
             toggleType: ToggleType.expandOnlyCurrent,
             children: eventList
@@ -129,7 +153,9 @@ class ExperienceTileView extends StatelessWidget {
                         style: const TextStyle(fontFamily: 'Bourgeois'),
                       ),
                       collapsedTextColor: Colors.white,
+                      collapsedIconColor: Colors.white,
                       textColor: textHighlightColorOrange,
+                      iconColor: textHighlightColorOrange,
                       collapsedBackgroundColor: const Color(0xFF2B303D),
                       childrenPadding: EdgeInsets.fromLTRB(20, 0, 20, 20),
                       expandedCrossAxisAlignment: CrossAxisAlignment.start,
