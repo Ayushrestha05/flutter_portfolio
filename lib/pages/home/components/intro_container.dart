@@ -72,6 +72,7 @@ class buildIntroContainer extends StatelessWidget {
                           SizedBox(height: 20),
                           Text(
                             'With my expertise in Dart programming and Flutter framework, I can help you create beautiful and functional cross-platform mobile apps in record time. Let\'s collaborate and bring your app ideas to life!',
+                            softWrap: true,
                             style: TextStyle(
                                 fontFamily: 'Bourgeois',
                                 fontSize: 20,

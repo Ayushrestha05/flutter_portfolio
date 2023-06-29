@@ -14,23 +14,18 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.black,
         body: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                buildIntroContainer(),
-                buildMarquee(
-                    text:
-                        'FLUTTER - DART - LARAVEL - JAVA - HTML - CSS - MYSQL - PYTHON  /  '),
-                BuildExperienceContainer(),
-                buildMarquee(text: 'BrainOutOfBounds  '),
-                SizedBox(
-                  height: 50,
-                ),
-                const BuildFooterContainer()
-              ],
+          child: ListView(shrinkWrap: true, children: [
+            buildIntroContainer(),
+            buildMarquee(
+                text:
+                    'FLUTTER - DART - LARAVEL - JAVA - HTML - CSS - MYSQL - PYTHON  /  '),
+            BuildExperienceContainer(),
+            buildMarquee(text: 'BrainOutOfBounds  '),
+            SizedBox(
+              height: 50,
             ),
-          ),
+            const BuildFooterContainer()
+          ]),
         ));
   }
 
