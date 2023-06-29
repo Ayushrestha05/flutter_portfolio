@@ -2,13 +2,23 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/pages/home/components/flip_card.dart';
+import 'package:portfolio_web/utils/constants.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class BuildExperienceContainer extends StatelessWidget {
   BuildExperienceContainer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ExperienceGrid(eventList: eventList);
+    if (ResponsiveBreakpoints.of(context).largerOrEqualTo(TABLET)) {
+      return ExperienceGridView(
+        eventList: eventList,
+      );
+    } else {
+      return ExperienceTileView(
+        eventList: eventList,
+      );
+    }
   }
 
   final List<TimelineEvent> eventList = [
@@ -44,8 +54,8 @@ class BuildExperienceContainer extends StatelessWidget {
   ];
 }
 
-class ExperienceGrid extends StatelessWidget {
-  const ExperienceGrid({
+class ExperienceGridView extends StatelessWidget {
+  const ExperienceGridView({
     super.key,
     required this.eventList,
   });
@@ -60,8 +70,8 @@ class ExperienceGrid extends StatelessWidget {
         child: GridView(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 450),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: getResponsiveGridValue(context: context)),
             children: [
               Card(
                 child: Container(
@@ -84,7 +94,7 @@ class ExperienceGrid extends StatelessWidget {
                   ),
                 ),
               )
-            ]..addAll(eventList.map((e) => workExperienceCard(
+            ]..addAll(eventList.map((e) => WorkExperienceCard(
                   e: e,
                 )))),
       ),
@@ -92,10 +102,77 @@ class ExperienceGrid extends StatelessWidget {
   }
 }
 
-class workExperienceCard extends StatelessWidget {
+class ExperienceTileView extends StatelessWidget {
+  final List<TimelineEvent> eventList;
+
+  const ExperienceTileView({
+    super.key,
+    required this.eventList,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: eventList
+          .map((e) => ExpansionTile(
+                title: Text(
+                  e.event,
+                  style: const TextStyle(fontFamily: 'Bourgeois'),
+                ),
+                subtitle: Text(
+                  e.time,
+                  style: const TextStyle(fontFamily: 'Bourgeois'),
+                ),
+                collapsedTextColor: Colors.white,
+                textColor: textHighlightColorOrange,
+                collapsedBackgroundColor: const Color(0xFF2B303D),
+                childrenPadding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                children:
+                    e.description != null && (e.description ?? []).isNotEmpty
+                        ? e.description!
+                            .map((value) => Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Text(
+                                      '\u2022',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          height: 1.55,
+                                          color: Colors.white),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Flexible(
+                                      child: Text(
+                                        value,
+                                        textAlign: TextAlign.left,
+                                        softWrap: true,
+                                        style: const TextStyle(
+                                          fontFamily: 'Bourgeois',
+                                          fontSize: 16,
+                                          height: 1.55,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ))
+                            .toList()
+                        : [],
+              ))
+          .toList(),
+    );
+  }
+}
+
+class WorkExperienceCard extends StatelessWidget {
   final TimelineEvent e;
 
-  const workExperienceCard({
+  const WorkExperienceCard({
     required this.e,
     super.key,
   });
