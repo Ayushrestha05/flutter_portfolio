@@ -17,30 +17,25 @@ class BuildFooterContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               LinkIconButton(
-                  link: 'https://www.github.com/ayushrestha05',
-                  openType: '_blank',
-                  icon: FontAwesome.github),
+                  link: 'https://www.github.com/ayushrestha05', openType: '_blank', icon: FontAwesome.github_brand),
               SizedBox(
                 width: 20,
               ),
               LinkIconButton(
                   link: 'https://www.linkedin.com/in/ayushrestha05/',
                   openType: '_blank',
-                  icon: FontAwesome.linkedin),
+                  icon: FontAwesome.linkedin_brand),
               SizedBox(
                 width: 20,
               ),
               LinkIconButton(
                   link: 'https://www.instagram.com/brainoutofbounds/',
                   openType: '_blank',
-                  icon: FontAwesome.instagram),
+                  icon: FontAwesome.instagram_brand),
               SizedBox(
                 width: 20,
               ),
-              LinkIconButton(
-                  link: 'mailto:ayushrestha05@gmail.com',
-                  openType: '_blank',
-                  icon: FontAwesome.envelope),
+              LinkIconButton(link: 'mailto:ayushrestha05@gmail.com', openType: '_blank', icon: FontAwesome.envelope),
             ],
           ),
           SizedBox(
@@ -49,8 +44,7 @@ class BuildFooterContainer extends StatelessWidget {
           Text(
             'Designed and Developed by Ayush \'BrainOutOfBounds\' Shrestha, 2023',
             textAlign: TextAlign.center,
-            style: TextStyle(
-                fontFamily: 'Bourgeois', fontSize: 20, color: Colors.white),
+            style: TextStyle(fontFamily: 'Bourgeois', fontSize: 20, color: Colors.white),
           ),
         ],
       ),

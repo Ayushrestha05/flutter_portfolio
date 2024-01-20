@@ -26,9 +26,7 @@ class buildIntroContainer extends StatelessWidget {
               // Info Container
               ResponsiveRowColumnItem(
                 child: Expanded(
-                  flex: ResponsiveBreakpoints.of(context).smallerThan('DESKTOP')
-                      ? 0
-                      : 1,
+                  flex: ResponsiveBreakpoints.of(context).smallerThan('DESKTOP') ? 0 : 1,
                   child: Container(
                     // Setting the container height to the screen height whilst reducing the padding of the container
                     height: ResponsiveBreakpoints.of(context).screenHeight - 24,
@@ -52,31 +50,20 @@ class buildIntroContainer extends StatelessWidget {
                               text: TextSpan(children: [
                             TextSpan(
                                 text: 'Meet',
-                                style: TextStyle(
-                                    fontFamily: 'CindieMono',
-                                    fontSize: 30,
-                                    color: Colors.white)),
+                                style: TextStyle(fontFamily: 'CindieMono', fontSize: 30, color: Colors.white)),
                             TextSpan(
                                 text: '\nAyush ',
-                                style: TextStyle(
-                                    fontFamily: 'CindieMono',
-                                    fontSize: 30,
-                                    color: textHighlightColorOrange)),
+                                style:
+                                    TextStyle(fontFamily: 'CindieMono', fontSize: 30, color: textHighlightColorOrange)),
                             TextSpan(
                                 text: 'Shrestha',
-                                style: TextStyle(
-                                    fontFamily: 'CindieMono',
-                                    fontSize: 30,
-                                    color: Colors.white)),
+                                style: TextStyle(fontFamily: 'CindieMono', fontSize: 30, color: Colors.white)),
                           ])),
                           SizedBox(height: 20),
                           Text(
                             'With my expertise in Dart programming and Flutter framework, I can help you create beautiful and functional cross-platform mobile apps in record time. Let\'s collaborate and bring your app ideas to life!',
                             softWrap: true,
-                            style: TextStyle(
-                                fontFamily: 'Bourgeois',
-                                fontSize: 20,
-                                color: Colors.white),
+                            style: TextStyle(fontFamily: 'Bourgeois', fontSize: 20, color: Colors.white),
                           ),
                           //Contact me button
                           SizedBox(height: 20),
@@ -86,35 +73,27 @@ class buildIntroContainer extends StatelessWidget {
                             children: [
                               ElevatedButton(
                                 onPressed: () {
-                                  html.window.open(
-                                      'mailto:ayushrestha05@gmail.com',
-                                      '_self');
+                                  html.window.open('mailto:ayushrestha05@gmail.com', '_self');
                                 },
                                 child: const Text('Contact Me'),
                                 style: ElevatedButton.styleFrom(
                                     primary: textHighlightColorOrange,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 30, vertical: 22),
-                                    textStyle: const TextStyle(
-                                        fontSize: 20, fontFamily: 'Bourgeois')),
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
+                                    textStyle: const TextStyle(fontSize: 20, fontFamily: 'Bourgeois')),
                               ),
                               LinkIconButton(
                                   link: 'https://www.github.com/ayushrestha05',
                                   openType: '_blank',
-                                  icon: FontAwesome.github),
+                                  icon: FontAwesome.github_brand),
                               LinkIconButton(
-                                  link:
-                                      'https://www.linkedin.com/in/ayushrestha05/',
+                                  link: 'https://www.linkedin.com/in/ayushrestha05/',
                                   openType: '_blank',
-                                  icon: FontAwesome.linkedin),
+                                  icon: FontAwesome.linkedin_brand),
                               LinkIconButton(
-                                  link:
-                                      'https://www.instagram.com/brainoutofbounds/',
+                                  link: 'https://www.instagram.com/brainoutofbounds/',
                                   openType: '_blank',
-                                  icon: FontAwesome.instagram),
+                                  icon: FontAwesome.instagram_brand),
                             ],
                           )
                         ],
@@ -125,26 +104,22 @@ class buildIntroContainer extends StatelessWidget {
               ),
               // Spacing Container
               ResponsiveRowColumnItem(
-                  child:
-                      ResponsiveBreakpoints.of(context).smallerThan('DESKTOP')
-                          ? Container()
-                          : SizedBox(
-                              width: 12,
-                              height: 12,
-                            )),
+                  child: ResponsiveBreakpoints.of(context).smallerThan('DESKTOP')
+                      ? Container()
+                      : SizedBox(
+                          width: 12,
+                          height: 12,
+                        )),
               // Profile Photo Container
               ResponsiveRowColumnItem(
                 child: ResponsiveBreakpoints.of(context).smallerThan('DESKTOP')
                     ? Container()
                     : Container(
-                        height:
-                            ResponsiveBreakpoints.of(context).screenHeight - 24,
+                        height: ResponsiveBreakpoints.of(context).screenHeight - 24,
                         width: 300,
                         decoration: BoxDecoration(
                           image: const DecorationImage(
-                              image:
-                                  AssetImage('assets/images/profile_photo.jpg'),
-                              fit: BoxFit.cover),
+                              image: AssetImage('assets/images/profile_photo.jpg'), fit: BoxFit.cover),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),

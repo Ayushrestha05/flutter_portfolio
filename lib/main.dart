@@ -17,8 +17,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'BrainOutOfBounds',
-        builder: (context, child) =>
-            ResponsiveBreakpoints.builder(child: child!, breakpoints: [
+        builder: (context, child) => ResponsiveBreakpoints.builder(child: child!, breakpoints: [
           const Breakpoint(start: 0, end: 450, name: MOBILE),
           const Breakpoint(start: 451, end: 799, name: TABLET),
           const Breakpoint(start: 800, end: 1919, name: DESKTOP),
